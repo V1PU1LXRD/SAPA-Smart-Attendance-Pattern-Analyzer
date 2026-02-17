@@ -1,0 +1,38 @@
+# ===== Dependencies =====
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# ===== Environment =====
+.env
+.env.local
+.env.production
+server/.env
+client/.env
+
+# ===== Build Output =====
+client/dist/
+client/build/
+server/templates/attendance_template.xlsx
+
+# ===== Uploads =====
+server/uploads/*
+!server/uploads/.gitkeep
+
+# ===== OS Files =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== IDE =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== Logs =====
+*.log
+npm-debug.log*
+
+# ===== Coverage =====
+coverage/
