@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc !important;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+@layer components {
+  .input-official {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 14px;
+    padding-right: 14px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    color: #1e293b;
+    background-color: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+    line-height: 1.5;
+  }
+  .input-official:focus {
+    border-color: #0d9488;
+    box-shadow: 0 0 0 3px rgba(13,148,136,0.12);
+  }
+  .input-official::placeholder { color: #94a3b8; }
+  .input-official:disabled {
+    background-color: #f1f5f9;
+    color: #94a3b8;
+    cursor: not-allowed;
+  }
+}
+
+@layer utilities {
+  .card-official {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .card-official:hover {
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 10px 20px -5px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+  }
+  .depth-layer {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  }
+  .bg-subtle-grid {
+    background-image:
+      linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .status-safe { background: #ecfdf5; color: #059669; border: 1px solid #a7f3d0; }
+  .status-risk { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+  .status-critical { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+}
+
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 20px; background-color: #1e3a5f; color: #fff; font-weight: 600;
+  font-size: 14px; line-height: 1; border-radius: 8px; border: none; cursor: pointer;
+  transition: all 0.2s ease; white-space: nowrap;
+}
+.btn-primary:hover { background-color: #102a43; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(30,58,95,0.15); }
+.btn-primary:active { transform: translateY(0); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.btn-teal {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 20px; background-color: #0d9488; color: #fff; font-weight: 600;
+  font-size: 14px; line-height: 1; border-radius: 8px; border: none; cursor: pointer;
+  transition: all 0.2s ease; white-space: nowrap;
+}
+.btn-teal:hover { background-color: #0f766e; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(13,148,136,0.2); }
+.btn-teal:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.btn-outline {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 20px; background-color: transparent; color: #334155; font-weight: 600;
+  font-size: 14px; line-height: 1; border-radius: 8px; border: 1.5px solid #e2e8f0;
+  cursor: pointer; transition: all 0.2s ease; white-space: nowrap;
+}
+.btn-outline:hover { border-color: #cbd5e1; background-color: #f8fafc; }
+
+.btn-amber {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 20px; background-color: #d97706; color: #fff; font-weight: 600;
+  font-size: 14px; line-height: 1; border-radius: 8px; border: none; cursor: pointer;
+  transition: all 0.2s ease; white-space: nowrap;
+}
+.btn-amber:hover { background-color: #b45309; transform: translateY(-1px); }
+.btn-amber:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.label-official {
+  display: block; font-size: 13px; font-weight: 600; color: #475569; margin-bottom: 6px;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+.auth-panel-bg {
+  background: linear-gradient(135deg, #102a43 0%, #1e3a5f 50%, #243b53 100%);
+}
+
+.sidebar-bg {
+  background: linear-gradient(180deg, #102a43 0%, #1e3a5f 100%);
+}
