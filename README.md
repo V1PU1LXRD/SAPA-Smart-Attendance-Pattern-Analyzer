@@ -12,7 +12,7 @@
 
 <br/>
 
-[**Live Demo**](https://your-demo-link.com) · [**Report Bug**](https://github.com/YOUR_USERNAME/SAPA-Smart-Attendance-Pattern-Analyzer/issues) · [**Request Feature**](https://github.com/YOUR_USERNAME/SAPA-Smart-Attendance-Pattern-Analyzer/issues)
+[**Live Demo (Frontend)**](https://client-seven-mu-10.vercel.app) · [**Report Bug**](https://github.com/V1PU1LXRD/SAPA-Smart-Attendance-Pattern-Analyzer/issues) · [**Request Feature**](https://github.com/V1PU1LXRD/SAPA-Smart-Attendance-Pattern-Analyzer/issues)
 
 <br/>
 
@@ -208,6 +208,11 @@ Vipul Kanhere
 * GitHub: @V1PU1LXRD
 * LinkedIn: https://www.linkedin.com/in/vipul-kanhere-903b8033a/
 * Email: vipul.kanhere@gmail.com
+
+## 🚀 Deployment
+
+- **Frontend (deployed):** [https://client-seven-mu-10.vercel.app](https://client-seven-mu-10.vercel.app) - Deployed on Vercel
+- **Backend:** Requires Node.js server deployment (e.g., Render, Railway, Heroku). Configure environment variables as per `.env.example`. Note: The frontend is configured to connect to `http://localhost:5000/api` by default; update the API base URL in `client/src/utils/api.js` when deploying backend.
 
 <div align="center">
 ⭐ If this project helped you, consider giving it a star! ⭐
