@@ -50,8 +50,12 @@ const VerifyOTP = () => {
   };
 
   const handleResend = async () => {
-    try { await API.post('/auth/resend-otp', { email }); toast.success('New OTP sent'); }
-    catch { toast.error('Failed to resend'); }
+    try {
+      await API.post('/auth/resend-otp', { email });
+      toast.success('New OTP sent');
+    } catch (err) {
+      toast.error(err.response?.data?.message || 'Failed to resend');
+    }
   };
 
   return (

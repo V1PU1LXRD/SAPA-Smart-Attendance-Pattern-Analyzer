@@ -24,7 +24,11 @@ const Register = () => {
     setLoading(true);
     try {
       const res = await API.post('/auth/register', form);
-      toast.success(res.data.message);
+      if (res.data.emailSent === false) {
+        toast(res.data.message, { icon: '⚠️', duration: 6000 });
+      } else {
+        toast.success(res.data.message);
+      }
       navigate('/verify-otp', { state: { email: form.email } });
     } catch (err) {
       toast.error(err.response?.data?.message || 'Registration failed');
