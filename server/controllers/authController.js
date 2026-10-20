@@ -32,12 +32,23 @@ exports.register = async (req, res) => {
       isVerified: false
     });
 
-    await sendOTPEmail(email, otp);
+    // The account is already created at this point, so a mail transport failure
+    // must not be reported as a failed registration.
+    let emailSent = true;
+    try {
+      await sendOTPEmail(email, otp);
+    } catch (emailError) {
+      emailSent = false;
+      console.error('OTP email delivery failed:', emailError.message);
+    }
 
     res.status(201).json({
-      message: 'Registration successful! OTP sent to your email.',
+      message: emailSent
+        ? 'Registration successful! OTP sent to your email.'
+        : 'Registration successful, but we could not send the OTP email. Please use "Resend OTP" to try again.',
       userId: user._id,
-      email: user.email
+      email: user.email,
+      emailSent
     });
   } catch (error) {
     console.error('Register error:', error);
@@ -89,7 +100,12 @@ exports.resendOTP = async (req, res) => {
     user.otpExpiry = new Date(Date.now() + 10 * 60 * 1000);
     await user.save();
 
-    await sendOTPEmail(email, otp);
+    try {
+      await sendOTPEmail(email, otp);
+    } catch (emailError) {
+      console.error('OTP email delivery failed:', emailError.message);
+      return res.status(503).json({ message: 'Could not send the OTP email. Please try again shortly.' });
+    }
 
     res.json({ message: 'New OTP sent to your email' });
   } catch (error) {

@@ -15,6 +15,9 @@ client/dist/
 client/build/
 server/templates/attendance_template.xlsx
 
+# ===== Tooling =====
+.vercel/
+
 # ===== Uploads =====
 server/uploads/*
 !server/uploads/.gitkeep
